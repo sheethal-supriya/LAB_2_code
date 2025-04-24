@@ -1,0 +1,29 @@
+version: 2
+
+models:
+  - name: stg_stock_data
+    description: "Staged cleaned stock data from raw.stock_data"
+    columns:
+      - name: date
+        description: "Date of the stock data"
+        tests:
+          - not_null
+
+  - name: stock_moving_avg
+    description: "Stock moving average calculations from staged stock data"
+    columns:
+      - name: symbol
+        description: "Stock ticker symbol"
+        tests:
+          - not_null
+
+
+
+  - name: stock_forecast_view
+    description: "Final combined table for actual and forecasted stock data"
+    columns:
+      - name: symbol
+        description: "Stock ticker symbol"
+        tests:
+          - not_null
+ 

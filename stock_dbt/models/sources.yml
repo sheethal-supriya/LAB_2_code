@@ -1,0 +1,33 @@
+version: 2
+
+sources:
+  - name: raw
+    database: USER_DB_CAT
+    schema: raw
+    tables:
+      - name: stock_data
+        description: "Raw historical stock data pulled via yfinance API"
+        columns:
+          - name: symbol
+            description: "Stock ticker symbol"
+          - name: date
+            description: "Date of the stock data"
+          - name: open
+          - name: high
+          - name: low
+          - name: close
+          - name: volume
+
+  - name: analytics
+    database: USER_DB_CAT
+    schema: analytics
+    tables:
+      - name: stock_data
+        description: "Final forecasted stock data with actual, forecast, lower and upper bounds"
+        columns:
+          - name: symbol
+          - name: date
+          - name: actual
+          - name: forecast
+          - name: lower_bound
+          - name: upper_bound
